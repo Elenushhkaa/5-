@@ -1,0 +1,43 @@
+#include<iostream>
+using namespace std;
+
+
+int main() {
+    srand(time(0));
+    int Elenushka, x, y, z;
+    cin >> Elenushka;
+    int** mas = new int* [Elenushka];
+    for (int i = 0; i < Elenushka; i++) {
+        mas[i] = new int[Elenushka];
+
+    }
+    for (int i = 0; i < Elenushka; i++) {
+        for (int j = 0; j < Elenushka; j++) {
+            mas[i][j] = rand() % 10;
+        }
+    }
+    for (int i = 0; i < Elenushka; i++) {
+        for (int j = 0; j < Elenushka; j++) {
+            cout << mas[i][j] << " ";
+        }
+        cout << endl;
+    }
+    cout << endl;
+
+    cin >> x >> y;
+    for (int j = 0; j < Elenushka; j++) {
+        z = mas[x][j];
+        mas[x][j] = mas[y][j];
+        mas[y][j] = z;
+    }
+    for (int i = 0; i < Elenushka; i++) {
+        for (int j = 0; j < Elenushka; j++) {
+            cout << mas[i][j] << " ";
+        }
+        cout << endl;
+    }
+    for (int i = 0; i < Elenushka; i++) {
+        delete mas[i];
+    }
+    delete mas;
+}
